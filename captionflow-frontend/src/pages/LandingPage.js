@@ -4,6 +4,55 @@ import { FiArrowRight, FiMic, FiGlobe, FiClock, FiCheck, FiMail, FiMapPin, FiPho
 import Layout from '../components/layout/Layout';
 import LoginModal from '../components/ui/LoginModal';
 
+// Placeholder URLs for FAANG company logos
+const companyLogos = {
+  facebook: "https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png",
+  amazon: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+  apple: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
+  netflix: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
+  google: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+};
+
+// Developer team information
+const developerTeam = [
+  {
+    name: "Deepak Shandilya",
+    role: "Team Lead & Full Stack Developer",
+    image: "/images/developers/deepak-shandilya.jpg",
+    github: "https://github.com/deepakshandilya",
+    linkedin: "https://linkedin.com/in/deepakshandilyaa"
+  },
+  {
+    name: "Utkarsh Singh",
+    role: "Backend Developer",
+    image: "/images/developers/utkarsh-singh.jpeg",
+    github: "https://github.com/deepakshandilya",
+    linkedin: "https://linkedin.com/in/deepakshandilyaa"
+  },
+  {
+    name: "Swaraj Bendge",
+    role: "Frontend Developer",
+    image: "/images/developers/swaraj-bendge.jpg",
+    github: "https://github.com/deepakshandilya",
+    linkedin: "https://www.linkedin.com/in/swaraj-bendge-a24555226?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+  },
+  {
+    name: "Priyanshu Saini",
+    role: "UI/UX Designer",
+    image: "/images/developers/priyanshu-saini.jpg",
+    github: "https://github.com/priyanshu-saini",
+    linkedin: "https://linkedin.com/in/deepakshandilyaa"
+    
+  },
+  {
+    name: "Varun Sengar",
+    role: "DevOps Engineer",
+    image: "/images/developers/varun-sengar.jpg",
+    github: "https://github.com/VARUN022",
+    linkedin: "https://www.linkedin.com/in/varun-sengar-220v220?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B98efUGyMQnuh3WjGXhCW6g%3D%3D"
+  }
+];
+
 const LandingPage = ({ navigateToApp }) => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [typedText, setTypedText] = useState('');
@@ -182,7 +231,7 @@ const LandingPage = ({ navigateToApp }) => {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
-                Start Capturing Now
+                Start Free Trial
                 <FiArrowRight className="ml-2" />
               </motion.button>
               
@@ -294,10 +343,11 @@ const LandingPage = ({ navigateToApp }) => {
           <div className="mt-24 text-center">
             <p className="text-sm text-gray-500 uppercase tracking-wider mb-6">Trusted by innovative companies</p>
             <div className="flex flex-wrap justify-center gap-8 opacity-70">
-              <img src="https://via.placeholder.com/120x40/2D3748/FFFFFF?text=Company+1" alt="Company logo" className="h-8" />
-              <img src="https://via.placeholder.com/120x40/2D3748/FFFFFF?text=Company+2" alt="Company logo" className="h-8" />
-              <img src="https://via.placeholder.com/120x40/2D3748/FFFFFF?text=Company+3" alt="Company logo" className="h-8" />
-              <img src="https://via.placeholder.com/120x40/2D3748/FFFFFF?text=Company+4" alt="Company logo" className="h-8" />
+              <img src={companyLogos.facebook} alt="Facebook logo" className="h-8 object-contain" />
+              <img src={companyLogos.amazon} alt="Amazon logo" className="h-8 object-contain" />
+              <img src={companyLogos.apple} alt="Apple logo" className="h-8 object-contain" />
+              <img src={companyLogos.netflix} alt="Netflix logo" className="h-8 object-contain" />
+              <img src={companyLogos.google} alt="Google logo" className="h-8 object-contain" />
             </div>
           </div>
         </div>
@@ -417,33 +467,56 @@ const LandingPage = ({ navigateToApp }) => {
               />
             </div>
           </div>
-          
-          {/* Demo video placeholder */}
-          <motion.div
-            className="mt-24 rounded-xl overflow-hidden border border-gray-800 shadow-xl bg-gray-800"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="aspect-w-16 aspect-h-9 bg-gray-900 relative flex items-center justify-center">
-              <img src="https://via.placeholder.com/1920x1080/2D3748/FFFFFF?text=CaptionFlow+Demo" alt="Demo video thumbnail" className="w-full h-full object-cover opacity-80" />
-              
+        </div>
+      </section>
+
+      {/* CTA Section - Moved above contact section */}
+      <section className="py-20 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
+        {/* Accent effects */}
+        <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary-500/30 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-purple-500/20 rounded-full filter blur-3xl"></div>
+        
+        <motion.div 
+          className="container mx-auto px-6 md:px-12 text-center relative z-10"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="max-w-4xl mx-auto">
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary-900/50 text-primary-400 text-xs font-medium mb-4">
+              Limited Time Offer
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Ready to Transform Your Speech into Text?</h2>
+            <p className="text-xl mb-10 text-gray-300">
+              Join the professionals who rely on CaptionFlow for their speech-to-text needs
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
-                className="absolute flex items-center justify-center w-20 h-20 rounded-full bg-primary-500 text-white shadow-lg shadow-primary-500/30"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                onClick={navigateToApp}
+                className="px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white rounded-lg shadow-lg shadow-primary-500/25 font-medium"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
               >
-                <FiPlay className="text-2xl ml-1" />
+                Start Free Trial
               </motion.button>
               
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
-                <h3 className="text-xl font-bold">Watch CaptionFlow in Action</h3>
-                <p className="text-gray-300 text-sm">See how easy it is to generate perfect captions in seconds</p>
-              </div>
+              <motion.button
+                onClick={handleDemoLogin}
+                className="px-8 py-4 bg-transparent border border-white/30 hover:bg-white/10 text-white rounded-lg font-medium"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                Schedule Demo
+              </motion.button>
             </div>
-          </motion.div>
-        </div>
+            
+            <p className="text-gray-500 text-sm mt-6">
+              No credit card required • 14-day free trial • Cancel anytime
+            </p>
+          </div>
+        </motion.div>
       </section>
 
       {/* Contact Section */}
@@ -484,7 +557,7 @@ const LandingPage = ({ navigateToApp }) => {
                     <input 
                       type="text" 
                       className="w-full px-4 py-3 rounded-lg border border-gray-700 bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-primary-500 text-white"
-                      placeholder="John"
+                      placeholder="Deeksha"
                     />
                   </div>
                   <div>
@@ -492,7 +565,7 @@ const LandingPage = ({ navigateToApp }) => {
                     <input 
                       type="text" 
                       className="w-full px-4 py-3 rounded-lg border border-gray-700 bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-primary-500 text-white"
-                      placeholder="Doe"
+                      placeholder="Sonal"
                     />
                   </div>
                 </div>
@@ -560,66 +633,81 @@ const LandingPage = ({ navigateToApp }) => {
                   <SocialIconButton icon={<FiGithub />} color="github" href="https://github.com/deepakshandilya" />
                 </div>
               </div>
-              
-              {/* Developer info */}
-              <div className="mt-10 pt-6 border-t border-gray-800">
-                <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-primary-400 mr-4">DS</div>
-                  <div>
-                    <h4 className="text-white font-medium">Deepak Shandilya</h4>
-                    <p className="text-gray-400 text-sm">Lead Developer</p>
-                  </div>
-                </div>
-              </div>
             </motion.div>
           </div>
         </div>
       </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
-        {/* Accent effects */}
-        <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary-500/30 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-purple-500/20 rounded-full filter blur-3xl"></div>
-        
-        <motion.div 
-          className="container mx-auto px-6 md:px-12 text-center relative z-10"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Ready to Transform Your Speech into Text?</h2>
-            <p className="text-xl mb-10 text-gray-300">
-              Join the professionals who rely on CaptionFlow for their speech-to-text needs
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                onClick={navigateToApp}
-                className="px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white rounded-lg shadow-lg shadow-primary-500/25 font-medium"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                Start Free Trial
-              </motion.button>
-              
-              <motion.button
-                onClick={handleDemoLogin}
-                className="px-8 py-4 bg-transparent border border-white/30 hover:bg-white/10 text-white rounded-lg font-medium"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                Schedule Demo
-              </motion.button>
+      
+      {/* Developer Team Section */}
+      <section id="team-section" className="py-24 bg-gray-900">
+        <div className="container mx-auto px-6 md:px-12">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-900/50 text-blue-400 text-xs font-medium mb-4">
+              Meet The Team
             </div>
-            
-            <p className="text-gray-500 text-sm mt-6">
-              No credit card required • 14-day free trial • Cancel anytime
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+              Our Developer Team
+            </h2>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              The talented engineers behind CaptionFlow
             </p>
-          </div>
-        </motion.div>
+          </motion.div>
+          
+          <motion.div 
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            {developerTeam.map((developer, index) => (
+              <motion.div
+                key={index}
+                className="bg-gray-800 border border-gray-700 rounded-xl overflow-hidden shadow-lg hover:shadow-primary-500/10 transition-all group"
+                variants={itemVariants}
+                whileHover={{ y: -5 }}
+              >
+                <div className="aspect-square bg-gray-700 relative overflow-hidden">
+                  {developer.image ? (
+                    <img 
+                      src={developer.image}
+                      alt={developer.name}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center text-gray-500 text-5xl font-bold">
+                      {developer.name.split(' ').map(name => name[0]).join('')}
+                    </div>
+                  )}
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold text-white mb-1">{developer.name}</h3>
+                  <p className="text-sm text-primary-400">{developer.role}</p>
+                  <div className="mt-4 pt-4 border-t border-gray-700 flex justify-center space-x-3">
+                    {developer.github && (
+                      <SocialIconButton icon={<FiGithub />} color="github" href={developer.github} />
+                    )}
+                    {developer.linkedin && (
+                      <SocialIconButton icon={<FiLinkedin />} color="linkedin" href={developer.linkedin} />
+                    )}
+                    {!developer.github && !developer.linkedin && (
+                      <>
+                        <SocialIconButton icon={<FiGithub />} color="github" />
+                        <SocialIconButton icon={<FiLinkedin />} color="linkedin" />
+                      </>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </section>
     </Layout>
   );

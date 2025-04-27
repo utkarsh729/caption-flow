@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useTheme } from '../../context/ThemeContext';
 import { motion } from 'framer-motion';
-import { FiSun, FiMoon, FiMenu, FiX, FiMic } from 'react-icons/fi';
+import { FiMenu, FiX, FiMic } from 'react-icons/fi';
 
 const Header = () => {
-  const { isDarkMode, toggleTheme } = useTheme();
+  const { isDarkMode } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Function to handle navigation in a real app with router
@@ -64,38 +64,18 @@ const Header = () => {
           
           <div className="flex items-center space-x-4">
             <motion.button
-              onClick={toggleTheme}
-              className="p-2 rounded-full bg-gray-100 dark:bg-gray-800"
-              whileHover={{ rotate: 15 }}
-              whileTap={{ scale: 0.9 }}
-              aria-label="Toggle theme"
-            >
-              {isDarkMode ? <FiSun className="text-yellow-400" /> : <FiMoon className="text-gray-700" />}
-            </motion.button>
-            
-            <motion.button
               className="px-4 py-2 bg-primary-500 text-white rounded-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => handleNavigation('login')}
             >
-              Login
+              Free Trial
             </motion.button>
           </div>
         </div>
 
         {/* Mobile Menu Button */}
         <div className="flex items-center md:hidden">
-          <motion.button
-            onClick={toggleTheme}
-            className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 mr-2"
-            whileHover={{ rotate: 15 }}
-            whileTap={{ scale: 0.9 }}
-            aria-label="Toggle theme"
-          >
-            {isDarkMode ? <FiSun className="text-yellow-400" /> : <FiMoon className="text-gray-700" />}
-          </motion.button>
-          
           <motion.button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="p-2 text-gray-600 dark:text-gray-300"
@@ -126,7 +106,7 @@ const Header = () => {
               whileTap={{ scale: 0.97 }}
               onClick={() => handleNavigation('login')}
             >
-              Login
+              Free Trial
             </motion.button>
           </nav>
         </motion.div>

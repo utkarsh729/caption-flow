@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiGithub, FiTwitter, FiLinkedin, FiHeart, FiMapPin, FiMail, FiCode, FiGlobe } from 'react-icons/fi';
+import { FiGithub, FiTwitter, FiLinkedin, FiMapPin, FiMail, FiGlobe } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 
 const Footer = () => {
@@ -50,30 +50,6 @@ const Footer = () => {
               A premium tool for professionals who need accurate, instant transcription
               for meetings, presentations, and multicultural communication.
             </p>
-            
-            {/* Developer Signature */}
-            <div className="bg-gray-800/50 p-4 rounded-lg backdrop-blur-sm border border-gray-700/50">
-              <h4 className="text-sm font-medium text-white mb-3 flex items-center">
-                <FiCode className="mr-2 text-primary-400" /> 
-                Created by
-              </h4>
-              <div className="flex flex-col space-y-2">
-                <div className="text-gray-300 font-medium">Deepak Shandilya</div>
-                <div className="flex items-start text-xs text-gray-400">
-                  <FiMapPin className="mt-0.5 mr-2 text-gray-500" />
-                  <span>Chandigarh University, Mohali, India</span>
-                </div>
-                <a 
-                  href="https://github.com/deepakshandilya" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center text-xs text-primary-400 hover:text-primary-300 transition-colors"
-                >
-                  <FiGithub className="mr-2" />
-                  github.com/deepakshandilya
-                </a>
-              </div>
-            </div>
           </motion.div>
           
           {/* Quick Links */}
