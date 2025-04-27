@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Layout from '../components/layout/Layout';
+import AppLayout from '../components/layout/AppLayout';
 import LanguageSelector from '../components/ui/LanguageSelector';
 import MicrophoneButton from '../components/ui/MicrophoneButton';
 import CaptionDisplay from '../components/ui/CaptionDisplay';
@@ -169,7 +169,7 @@ const AppPage = ({ navigateToLanding }) => {
   };
 
   return (
-    <Layout>
+    <AppLayout>
       <div className="container mx-auto px-6 md:px-12 py-8">
         <div className="flex justify-between items-center mb-8">
           <motion.button
@@ -265,7 +265,7 @@ const AppPage = ({ navigateToLanding }) => {
           </motion.div>
         </div>
       </div>
-    </Layout>
+    </AppLayout>
   );
 };
 

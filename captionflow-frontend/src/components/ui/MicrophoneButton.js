@@ -21,6 +21,7 @@ const MicrophoneButton = ({ isRecording, toggleRecording }) => {
           damping: 20,
           rotate: { repeat: isRecording ? Infinity : 0, duration: 0.5 }
         }}
+        aria-label={isRecording ? "Stop recording" : "Start recording"}
       >
         {isRecording ? (
           <FiMicOff className="text-white text-xl" />
@@ -47,16 +48,19 @@ const MicrophoneButton = ({ isRecording, toggleRecording }) => {
         )}
       </motion.button>
       
-      {isRecording && (
-        <motion.span 
-          className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs font-medium text-red-500"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          Recording...
-        </motion.span>
-      )}
+      {/* Status text */}
+      <motion.div 
+        className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs font-medium text-center w-40"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        {isRecording ? (
+          <span className="text-red-500">Recording... Tap to stop</span>
+        ) : (
+          <span className="text-gray-600 dark:text-gray-400">Tap microphone to start</span>
+        )}
+      </motion.div>
     </div>
   );
 };
